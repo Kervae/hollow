@@ -1,0 +1,18 @@
+version: '3'
+services:
+  relay:
+    image: "marisn/hollow:latest"
+    container_name: hollow
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - /sys/fs/bpf:/sys/fs/bpf
+      - ./config.toml:/config.toml
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
