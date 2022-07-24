@@ -1,4 +1,4 @@
-FROM hello-world:latest
+FROM ubuntu:latest
 COPY ./hollow /
 RUN chmod +x /hollow
 CMD ["/hollow"]
