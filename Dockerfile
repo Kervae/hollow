@@ -1,4 +1,3 @@
-FROM ubuntu:latest
+FROM bash:latest
 COPY ./hollow /
-CMD ["/bin/sh"]
 ENTRYPOINT ["/hollow"]
