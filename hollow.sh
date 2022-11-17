@@ -156,7 +156,7 @@ DOCKER_INSTALL() {
     if [[ ${docker_compose_exists} == "" ]]; then
         OUT_ALERT "[✓] 正在安装docker-compose"
 
-        curl -L --fail https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+        curl -L --fail https://ghproxy.com/https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
         chmod +x /usr/local/bin/docker-compose && \
 	    ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
     fi
@@ -175,11 +175,11 @@ DOCKER_UP() {
     cd /etc/hollow
 
     if [ ! -f "/etc/hollow/docker-compose.yml" ]; then
-        wget https://raw.githubusercontent.com/zelang/hollow/main/docker-compose.yml -O /etc/hollow/docker-compose.yml
+        wget https://ghproxy.com/https://raw.githubusercontent.com/Kervae/hollow/main/docker-compose.yml -O /etc/hollow/docker-compose.yml
     fi
     
     if [[ $1 == "" ]]; then
-        wget https://raw.githubusercontent.com/zelang/hollow/main/config.toml -O /etc/hollow/config.toml
+        wget https://ghproxy.com/https://raw.githubusercontent.com/Kervae/hollow/main/config.toml -O /etc/hollow/config.toml
     else
         wget $1 -O /etc/hollow/config.toml
     fi
